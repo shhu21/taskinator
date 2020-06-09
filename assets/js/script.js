@@ -6,6 +6,15 @@ var taskFormHandler = function() {
 
     var taskNameInput = document.querySelector("input[name='task-name']").value;
     var taskTypeInput = document.querySelector("select[name='task-type']").value;
+    
+    if(!taskNameInput || !taskTypeInput) {
+        alert("You need to fill out the task form!");
+        return false;
+    }
+    // ERROR: "reset() is not a function"
+    // formEl.reset();
+    document.querySelector("input[name='task-name']").value = "";
+    document.querySelector("select[name='task-type']").value = "";
 
     var taskDataObj = {
         name: taskNameInput,
